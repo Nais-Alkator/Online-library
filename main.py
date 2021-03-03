@@ -37,6 +37,7 @@ def parse_book_page(book_url):
     title = title.text.split("::")
     book_filename = title[0].strip()
     book_filename = sanitize_filename(book_filename)
+    book_filename = book_filename 
     author = title[1].strip()
     book_id = book_url.split(".org/b")[1][:-1]
     image_url = soup.select_one(".bookimage a img")["src"]
