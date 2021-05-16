@@ -14,9 +14,11 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+    {% for page in range(1, pages_quantity + 1) %}
+      <li class="page-item"><a class="page-link" href="pages/index{{page}}.html">{{page}}</a></li>
+    {% endfor %}
+
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
@@ -27,7 +29,7 @@
 
   <div class="container">
     <div class="row">
-        {% for pair in books_subgroup %}
+        {% for pair in books_summary %}
           {% for book in pair %}
             <div class="col">
               <div class="card mb-3" style="max-width: 540px;">
@@ -38,7 +40,7 @@
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">{{book.title}}</h5>
-                      <a href="{{book.book_path|urlencode}}.txt" target="_blank">Читать</a>
+                      <a href="../{{book.book_path|urlencode}}.txt" target="_blank">Читать</a>
                     </div>
                   </div>
                 </div>
@@ -49,6 +51,8 @@
         {% endfor %}
         </div>
       </div>
+}
+}
 
 </body>
 </html>
