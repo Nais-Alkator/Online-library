@@ -9,17 +9,17 @@
 
   <nav aria-label="Page navigation example" class="mx-auto mt-4" style="width: 540px;">
   <ul class="pagination">
-    <li class="page-item">
+    <li class="page-item {% if previous_page_number <= 0 %} disabled {% endif %}">
       <a class="page-link" href="{{previous_page_path}}" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
+        <span aria-hidden="true">Назад</span>
       </a>
     </li>
     {% for page in range(1, pages_quantity + 1) %}
-      <li class="page-item"><a class="page-link" href="index{{page}}.html">{{page}}</a></li>
+      <li class="page-item {% if page == page_number %} active {% endif %}"><a class="page-link" href="index{{page}}.html">{{page}}</a></li>
     {% endfor %}
-    <li class="page-item">
+    <li class="page-item {% if next_page_number > pages_quantity %} disabled {% endif %}">
       <a class="page-link" href="{{next_page_path}}" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
+        <span aria-hidden="true">Вперед</span>
       </a>
     </li>
   </ul>

@@ -28,7 +28,7 @@ def create_main_page():
         file.write(rendered_page)
 
 
-def on_reload():
+def create_page():
     with open("json/info.json", "r", encoding='utf-8') as my_file:
       books_summary = my_file.read()
     books_per_page = 10
@@ -51,6 +51,8 @@ def on_reload():
             previous_page_path=previous_page_path,
             next_page_path=next_page_path,
             pages_quantity=pages_quantity,
+            previous_page_number=previous_page_number,
+            next_page_number=next_page_number
             )
         with open(page_name, 'w', encoding="utf-8") as file:
             file.write(rendered_page)
@@ -60,7 +62,7 @@ os.makedirs("pages", exist_ok=True)
 
 create_main_page()
 
-on_reload()
+create_page()
 
 server = Server()
 
