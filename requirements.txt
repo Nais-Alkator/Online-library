@@ -3,3 +3,8 @@ pathvalidate==2.3.0
 requests==2.23.0
 urllib3==1.25.9
 lxml==4.5.2
+Jinja2==2.11.2
+bootstrap4==0.1.0
+livereload==2.6.3
+more-itertools==8.6.0
+tornado==6.0.4

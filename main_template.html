@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../static/bootstrap.min.css">
-    <title>hello</title>
+    <title>Книги</title>
 </head>
 <body>
 
@@ -42,7 +43,7 @@
                       <h5 class="card-title">{{book.title}}</h5>
                       <h6 class="card-title">{{book.author}}</h4>
                       <span class="badge badge-pill badge-dark">{{book.genres}}</span>
-                      <a href="../{{book.book_path|urlencode}}.txt" target="_blank">Читать</a>
+                      <a href="../{{book.book_path}}.txt" target="_blank">Читать</a>
                     </div>
                   </div>
                 </div>
@@ -53,8 +54,5 @@
         {% endfor %}
         </div>
       </div>
-}
-}
-
 </body>
 </html>
