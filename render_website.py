@@ -48,11 +48,7 @@ def create_page():
         rendered_page = template.render(
             books_subgroup=books_subgroup,
             page_number=page_number,
-            previous_page_path=previous_page_path,
-            next_page_path=next_page_path,
             pages_quantity=pages_quantity,
-            previous_page_number=previous_page_number,
-            next_page_number=next_page_number
             )
         with open(page_name, 'w', encoding="utf-8") as file:
             file.write(rendered_page)
