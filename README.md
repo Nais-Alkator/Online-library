@@ -14,7 +14,7 @@
 
 И откройте сайт в браузере по адресу `127.0.0.1:5500`.
 
-![Иллюстрация к проекту](https://github.com/Nais-Alkator/Online-library/screenshots/online-library.png)
+![Иллюстрация к проекту](https://raw.githubusercontent.com/Nais-Alkator/Online-library/main/screenshots/online-library.png)
 
 Скрипт использует данные из каталогов:
 1) `media` и его подкаталогов `books` и `images`, в которых находятся текстовые файлы книг в формате `txt` и обложки в формате `jpg`.
