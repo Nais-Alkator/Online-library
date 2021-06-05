@@ -87,7 +87,7 @@ def get_parser():
     parser = argparse.ArgumentParser(description="Скрипт скачивает книги и обложки к ним с сайта tululu.org")
     parser.add_argument("--start_page", help="Начальная страница для скачивания", type=int, default=1)
     parser.add_argument("--end_page", help="Конечная страница для скачивания", type=int, default=5)
-    parser.add_argument("--dest_folder", help="Путь к катологу с результатами парсинга", type=str, default="data")
+    parser.add_argument("--dest_folder", help="Путь к катологу с результатами парсинга", type=str, default="media")
     parser.add_argument("--skip_imgs", help="Не скачивать картинки", action="store_true")
     parser.add_argument("--skip_txt", help="Не скачивать книги", action="store_true")
     parser.add_argument("--json_path", help="Путь к файлу json", type=str, default="media")
