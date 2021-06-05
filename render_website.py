@@ -44,15 +44,12 @@ def create_pages():
             file.write(rendered_page)
         page_number += 1
 
-os.makedirs("pages", exist_ok=True)
-
-create_pages()
-
-server = Server()
-
-server.watch('main_template.html', create_pages)
-
-server.serve(root='.')
+if __name__ == '__main__':
+    os.makedirs("pages", exist_ok=True)
+    create_pages()
+    server = Server()
+    server.watch('template.html', create_pages)
+    server.serve(root='.')
 
 
 
