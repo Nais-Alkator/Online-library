@@ -1,5 +1,63 @@
 <!DOCTYPE html>
 <html lang="ru">
+{% if books_summary %}
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <title>Книги</title>
+</head>
+<body>
+
+  <nav aria-label="Page navigation example" class="mx-auto mt-4" style="width: 540px;">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">Назад</span>
+      </a>
+    </li>
+
+    {% for page in range(1, pages_quantity + 1) %}
+      <li class="page-item"><a class="page-link" href="pages/index{{page}}.html">{{page}}</a></li>
+    {% endfor %}
+
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">Вперёд</span>
+      </a>
+    </li>
+  </ul>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+        {% for pair in books_summary %}
+          {% for book in pair %}
+            <div class="col">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="{{book.image_url}}" class="card-img" alt="{{book.title}}">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{book.title}}</h5>
+                      <h6 class="card-title">{{book.author}}</h4>
+                      <span class="badge badge-pill badge-dark">{{book.genres}}</span>
+                      <a href="{{book.book_path|urlencode}}.txt" target="_blank">Читать</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+          <div class="w-100"></div>
+        {% endfor %}
+        </div>
+      </div>
+{% endif %}
+
+{% if not books_summary %}
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
@@ -52,6 +110,6 @@
         {% endfor %}
         </div>
       </div>
-
 </body>
+{% endif %}
 </html>
