@@ -90,7 +90,7 @@ def get_parser():
     parser.add_argument("--dest_folder", help="Путь к катологу с результатами парсинга", type=str, default="data")
     parser.add_argument("--skip_imgs", help="Не скачивать картинки", action="store_true")
     parser.add_argument("--skip_txt", help="Не скачивать книги", action="store_true")
-    parser.add_argument("--json_path", help="Путь к файлу json", type=str, default="json")
+    parser.add_argument("--json_path", help="Путь к файлу json", type=str, default="media")
     return parser
 
 

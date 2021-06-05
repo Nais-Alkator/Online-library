@@ -13,7 +13,7 @@ env = Environment(
 
 def create_pages():
     #Создание главной страницы
-    with open("json/info.json", "r", encoding='utf-8') as my_file:
+    with open("media/info.json", "r", encoding='utf-8') as my_file:
       books_json = my_file.read()
     books_json = json.loads(books_json)
     books_per_page = 10
@@ -33,7 +33,6 @@ def create_pages():
     page_number = 1
     for books_group in books_summary:
         books_subgroup = list(chunked(books_group, 2))
-        print(books_subgroup)
         template = env.get_template('template.html')
         page_name = 'pages/index{}.html'.format(page_number)
         rendered_page = template.render(

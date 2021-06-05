@@ -14,10 +14,10 @@
 
 И откройте сайт в браузере по адресу `127.0.0.1:5500`.
 
-![Иллюстрация к проекту](https://github.com/Nais-Alkator/Online-library/tree/main/data/online-library.png)
+![Иллюстрация к проекту](https://github.com/Nais-Alkator/Online-library/screenshots/online-library.png)
 
 Скрипт использует данные из каталогов:
-1) `data` и его подкаталогов `books` и `images`, в которых находятся текстовые файлы книг в формате `txt` и обложки в формате `jpg`.
+1) `media` и его подкаталогов `books` и `images`, в которых находятся текстовые файлы книг в формате `txt` и обложки в формате `jpg`.
 2) `json` - содержит файл info.json, с информацией о книгах.
 3) `pages`, в котором хранятся страницы онлайн-библиотеки.
 
