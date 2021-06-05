@@ -43,7 +43,9 @@
                     <div class="card-body">
                       <h5 class="card-title">{{book.title}}</h5>
                       <h6 class="card-title">{{book.author}}</h6>
-                      <span class="badge badge-pill badge-dark">{{book.genres}}</span>
+                      <span class="badge badge-pill badge-dark">{{book.genres[0]}}</span>
+                      <span class="badge badge-pill badge-dark">{{book.genres[1]}}</span>
+                      <p></p>
                       <a href="{{book.book_path|urlencode}}.txt" target="_blank">Читать</a>
                     </div>
                   </div>
@@ -98,7 +100,9 @@
                     <div class="card-body">
                       <h5 class="card-title">{{book.title}}</h5>
                       <h6 class="card-title">{{book.author}}</h6>
-                      <span class="badge badge-pill badge-dark">{{book.genres}}</span>
+                      <span class="badge badge-pill badge-dark">{{book.genres[0]}}</span>
+                      <span class="badge badge-pill badge-dark">{{book.genres[1]}}</span>
+                      <p></p>
                       <a href="../{{book.book_path|urlencode}}.txt" target="_blank">Читать</a>
                     </div>
                   </div>

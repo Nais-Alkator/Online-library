@@ -44,6 +44,10 @@ def parse_book_page(book_url):
     image_url = urljoin(book_url, image_url)
     book_path = os.path.join(books_folder, book_filename)
     genres = soup.find("span", class_="d_book").text
+    genres = genres.replace(".", '')
+    genres = genres.split("Жанр книги: \xa0 ")
+    genres = genres[1]
+    genres = genres.split(',')
     comments_tags = soup.select("div .texts")
     comments_text = [comment_tag.select_one("span").text for comment_tag in comments_tags]
     parsed_book_page = {
