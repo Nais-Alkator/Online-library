@@ -15,11 +15,11 @@ def create_pages():
     #Создание главной страницы
     with open("media/info.json", "r", encoding='utf-8') as my_file:
       books_json = my_file.read()
-    books_json = json.loads(books_json)
+    books = json.loads(books_json)
     books_per_page = 10
-    pages_quantity = (len(books_json) / books_per_page)
+    pages_quantity = (len(books) / books_per_page)
     pages_quantity = math.ceil(pages_quantity)
-    books_summary = list(chunked(books_json, 2))
+    books_summary = list(chunked(books, 2))
     template = env.get_template('template.html')
     rendered_page = template.render(
         books_summary=books_summary,
@@ -29,7 +29,7 @@ def create_pages():
         file.write(rendered_page)
 
     #Создание дополнительных страниц
-    books_summary = list(chunked(books_json, books_per_page))
+    books_summary = list(chunked(books, books_per_page))
     page_number = 1
     for books_group in books_summary:
         books_subgroup = list(chunked(books_group, 2))
