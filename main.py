@@ -71,9 +71,13 @@ def download_book(book_id):
     payload = {"id": book_id}
     book_file = requests.get(url, params=payload, verify=False)
     check_for_redirection(book_file)
-    filename = os.path.join(books_folder, "{0}{1}".format(title, ".txt"))
-    with open(filename, 'wb') as file:
-        file.write(book_file.content)
+    if book_file.text[-7:] == '</html>':
+        return 'Книга отсутствует для скачивания'
+    else:
+        filename = os.path.join(books_folder, "{0}{1}".format(title, ".txt"))
+        with open(filename, 'wb') as file:
+            file.write(book_file.content)
+        print("Скачана книга '{}'".format(title))
 
 def download_image(image_url, images_folder, title):
     image_file = requests.get(image_url, allow_redirects=True, verify=False)
@@ -81,6 +85,7 @@ def download_image(image_url, images_folder, title):
     filename = os.path.join(images_folder, "{0}{1}".format(title, image_url[-4:]))
     with open(filename, 'wb') as file:
         file.write(image_file.content)
+    print("Скачана обложка книги '{}'".format(title))
 
 
 def get_parser():
@@ -121,16 +126,13 @@ if __name__ == "__main__":
                 print("Генерируется файл с информацией о книгах. Добавлена информация о книге '{}'".format(parsed_book_page["title"]))
             elif skip_imgs:
                 download_book(book_id)
-                print("Скачана книга '{}'".format(title))
                 time.sleep(5)    
             elif skip_txt:
                 download_image(image_url, images_folder, title)
-                print("Скачана обложка книги '{}'".format(title))
                 time.sleep(5)
             else:
                 download_book(book_id)
                 download_image(image_url, images_folder, title)
-                print("Скачана книга '{}'' и обложка к ней".format(title))
                 time.sleep(5)
         except (requests.HTTPError, requests.ConnectionError) as error:
             logging.warning(error)
