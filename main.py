@@ -1,5 +1,6 @@
 import requests
 import os
+from posixpath import join
 from pathvalidate import sanitize_filename
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -42,7 +43,7 @@ def parse_book_page(book_url):
     book_id = book_url.split(".org/b")[1][:-1]
     image_url = soup.select_one(".bookimage a img")["src"]
     image_url = urljoin(book_url, image_url)
-    book_path = os.path.join(books_folder, book_filename)
+    book_path = join(books_folder, book_filename)
     genres = soup.find("span", class_="d_book").text
     genres = genres.replace(".", '')
     genres = genres.split("Жанр книги: \xa0 ")
@@ -92,7 +93,7 @@ def get_parser():
     parser = argparse.ArgumentParser(description="Скрипт скачивает книги и обложки к ним с сайта tululu.org")
     parser.add_argument("--start_page", help="Начальная страница для скачивания", type=int, default=1)
     parser.add_argument("--end_page", help="Конечная страница для скачивания", type=int, default=5)
-    parser.add_argument("--dest_folder", help="Путь к катологу с результатами парсинга", type=str, default="media")
+    parser.add_argument("--dest_folder", help="Путь к катологу с результатами парсинга", type=str, default="media/")
     parser.add_argument("--skip_imgs", help="Не скачивать картинки", action="store_true")
     parser.add_argument("--skip_txt", help="Не скачивать книги", action="store_true")
     parser.add_argument("--json_path", help="Путь к файлу json", type=str, default="media")
