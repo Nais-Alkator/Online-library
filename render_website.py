@@ -33,7 +33,6 @@ def create_pages():
     page_number = 1
     for books_group in books_summary:
         books_subgroup = list(chunked(books_group, 2))
-        template = env.get_template('template.html')
         page_name = 'pages/index{}.html'.format(page_number)
         rendered_page = template.render(
             books_subgroup=books_subgroup,
