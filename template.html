@@ -12,17 +12,17 @@
   <nav aria-label="Page navigation example" class="mx-auto mt-4" style="width: 540px;">
   <ul class="pagination">
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a style="cursor: default" class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">Назад</span>
       </a>
     </li>
 
     {% for page in range(1, pages_quantity + 1) %}
-      <li class="page-item"><a class="page-link" href="pages/index{{page}}.html">{{page}}</a></li>
+      <li  class="page-item {% if page == page_number %} active {% endif %}"><a style="cursor: default" class="page-link" href="pages/index{{page}}.html">{{page}}</a></li>
     {% endfor %}
 
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+      <a style="cursor: default" class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">Вперёд</span>
       </a>
     </li>
@@ -71,15 +71,15 @@
   <nav aria-label="Page navigation example" class="mx-auto mt-4" style="width: 540px;">
   <ul class="pagination">
     <li class="page-item {% if page_number - 1 <= 0 %} disabled {% endif %}">
-      <a class="page-link" href="index{{page_number - 1}}.html" aria-label="Previous">
+      <a style="cursor: default" class="page-link" href="index{{page_number - 1}}.html" aria-label="Previous">
         <span aria-hidden="true">Назад</span>
       </a>
     </li>
     {% for page in range(1, pages_quantity + 1) %}
-      <li class="page-item {% if page == page_number %} disabled {% endif %}"><a class="page-link" href="index{{page}}.html">{{page}}</a></li>
+      <li class="page-item {% if page == page_number %} active {% endif %}"><a style="cursor: default" class="page-link" href="index{{page}}.html">{{page}}</a></li>
     {% endfor %}
     <li class="page-item {% if page_number + 1 > pages_quantity %} disabled {% endif %}">
-      <a class="page-link" href="index{{page_number + 1}}.html" aria-label="Next">
+      <a style="cursor: default" class="page-link" href="index{{page_number + 1}}.html" aria-label="Next">
         <span aria-hidden="true">Вперед</span>
       </a>
     </li>
