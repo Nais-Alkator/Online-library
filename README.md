@@ -21,7 +21,7 @@
 2) `json` - содержит файл info.json, с информацией о книгах.
 3) `pages`, в котором хранятся страницы онлайн-библиотеки.
 
-[Онлайн версия библиотеки](https://nais-alkator.github.io/Online-library/)
+[Онлайн версия библиотеки](https://nais-alkator.github.io/Online-library/pages/index1.html)
 
 ### Цель проекта
 Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [dvmn.org](https://dvmn.org).
