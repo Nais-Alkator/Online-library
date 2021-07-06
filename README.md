@@ -17,9 +17,8 @@
 ![Иллюстрация к проекту](https://raw.githubusercontent.com/Nais-Alkator/Online-library/main/screenshots/online-library.png)
 
 Скрипт использует данные из каталогов:
-1) `media` и его подкаталогов `books` и `images`, в которых находятся текстовые файлы книг в формате `txt` и обложки в формате `jpg`.
-2) `json` - содержит файл info.json, с информацией о книгах.
-3) `pages`, в котором хранятся страницы онлайн-библиотеки.
+1) `media` и его подкаталогов `books` и `images`, в которых находятся текстовые файлы книг в формате `txt` и обложки в формате `jpg`. Также `media` содержит содержит файл info.json, с информацией о книгах.
+2) `pages`, в котором хранятся страницы онлайн-библиотеки.
 
 [Онлайн версия библиотеки](https://nais-alkator.github.io/Online-library/pages/index1.html)
 
