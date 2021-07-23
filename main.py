@@ -10,6 +10,10 @@ import time
 import logging
 
 
+class MissingBookError(Exception):
+    print("Книга отсутствует для скачивания")
+
+
 def check_for_redirection(response):
     response.raise_for_status()
     if response.status_code != 200: 
@@ -73,12 +77,12 @@ def download_book(book_id):
     book_file = requests.get(url, params=payload, verify=False)
     check_for_redirection(book_file)
     if book_file.text[-7:] == '</html>':
-        return 'Книга отсутствует для скачивания'
+        pass
     else:
         filename = os.path.join(books_folder, "{0}{1}".format(title, ".txt"))
         with open(filename, 'wb') as file:
             file.write(book_file.content)
-        print("Скачана книга '{}'".format(title))
+
 
 def download_image(image_url, images_folder, title):
     image_file = requests.get(image_url, allow_redirects=True, verify=False)
