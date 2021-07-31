@@ -10,10 +10,6 @@ import time
 import logging
 
 
-class MissingBookError(Exception):
-    print("Книга отсутствует для скачивания")
-
-
 def check_for_redirection(response):
     response.raise_for_status()
     if response.status_code != 200: 
@@ -90,7 +86,6 @@ def download_image(image_url, images_folder, title):
     filename = os.path.join(images_folder, "{0}{1}".format(title, image_url[-4:]))
     with open(filename, 'wb') as file:
         file.write(image_file.content)
-    print("Скачана обложка книги '{}'".format(title))
 
 
 def get_parser():
